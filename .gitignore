@@ -1,0 +1,11 @@
+**/.*.swp
+**/__pycache__/
+
+# weight
+src/model/
+
+# model store
+model_store/
+
+# torchserve logs folder
+logs/
