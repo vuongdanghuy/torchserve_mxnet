@@ -14,20 +14,4 @@ if __name__ == "__main__":
 
     # load model
     sym, arg_params, aux_params = mx.model.load_checkpoint(prefix, epoch)
-
-    if ctx_id >= 0:
-        ctx = mx.gpu(ctx_id)
-    else:
-        ctx = mx.cpu()
-
-    model = mx.mod.Module(
-        symbol=sym,
-        context=ctx,
-        label_names=None
-    )
-    model.bind(
-        data_shapes=[('data', (1, 3, 640, 640))],
-        for_training=False
-    )
-    model.set_params(arg_params, aux_params)
     logging.info("="*16 + " SUCCESS " + "="*16)
