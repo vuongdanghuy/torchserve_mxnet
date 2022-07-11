@@ -3,10 +3,6 @@ import os
 import torch
 
 import mxnet as mx
-import numpy as np
-
-from io import BytesIO
-from PIL import Image
 
 
 class FaceDetectHandler:
