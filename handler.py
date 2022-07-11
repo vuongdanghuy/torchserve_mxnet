@@ -26,18 +26,18 @@ class FaceDetectHandler:
 
         # load model
         sym, arg_params, aux_params = mx.model.load_checkpoint(prefix, 0)
-        if ctx_id >= 0:
-            self.ctx = mx.gpu(ctx_id)
-        else:
-            self.ctx = mx.cpu()
-        self.model = mx.mod.Module(symbol=sym,
-                                   context=self.ctx,
-                                   label_names=None)
-        self.model.bind(
-            data_shapes=[('data', (1, 3, 640, 640))],
-            for_training=False
-        )
-        self.model.set_params(arg_params, aux_params)
+        # if ctx_id >= 0:
+        #     self.ctx = mx.gpu(ctx_id)
+        # else:
+        #     self.ctx = mx.cpu()
+        # self.model = mx.mod.Module(symbol=sym,
+        #                            context=self.ctx,
+        #                            label_names=None)
+        # self.model.bind(
+        #     data_shapes=[('data', (1, 3, 640, 640))],
+        #     for_training=False
+        # )
+        # self.model.set_params(arg_params, aux_params)
         self.initialized = True
         logging.info("Loading ArcFace model done")
 
